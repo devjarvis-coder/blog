@@ -13,7 +13,7 @@
     box-sizing: border-box;
   }
   body{
-  background-image: url("{% static 'C:\Users\ACER\Downloads\blog (1)\blog\blog\static\wallll.jpeg' %}");
+  background-image: url("{% static '/wallll.jpeg' %}");
   background-repeat: no-repeat;    
   background-size: cover;
   background-attachment: fixed;
@@ -96,7 +96,7 @@ img.rounded.float-end{
             {% else %}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Accounnt
+                Account
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'login' %}" >Login</a></li>
