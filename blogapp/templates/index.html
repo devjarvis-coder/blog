@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .img {
+        width: 100%;
+        height: 270px;
+        display: table;
+        box-shadow: 9px 8px 20px 0px black;
+        border-radius: 20px;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+    .img:hover {
+        width: 100%;
+
+    }
+
+    .h1 {
+        color: #f66002;
+    }
+
+    .description {
+        text-align: justify;
+        font-size: 18px;
+    }
+
+    .card {
+        width: auto;
+        height: auto;
+        border-radius: 20px;
+        color: #f40808;
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.14);
+        box-shadow: 9px 8px 40px -10px black;
+    }
+
+    .card-body {
+        color: #ff0000;
+    }
+    img.rounded.float-end {
+        background: #b02183;
+        margin-left: 2px;
+        width: 160px;
+        height: 160px;
+    }
+    h1{
+        text-align: center;
+    }
+
+</style>
+<title>Home</title>
+<div class="container">
+    <div class="row">
+        {% for i in data %}
+        <div class="col-lg-4 py-4">
+            <div class="image-container">
+                <h1>{{i.title}}</h1>
+                <a href="{% url 'rmore' i.id %}">
+                <img src="{{i.image.url}}" class="img" /></a>
+                <br><h6 class="card-text">Post by {{i.created_by}} on {{i.created_on}}</h6>
+                <a href="{% url 'rmore' i.id %}" class="btn btn-success">Readmore</a>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% if messages %}
+{% for i in messages %}
+<script>
+    alert("{{i}}")    
+</script>
+{% endfor %}
+{% endif %}
+{% endblock %}
